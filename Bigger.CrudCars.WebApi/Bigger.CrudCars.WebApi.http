@@ -1,0 +1,6 @@
+@Bigger.CrudCars.WebApi_HostAddress = http://localhost:5177
+
+GET {{Bigger.CrudCars.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
