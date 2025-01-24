@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -9,6 +9,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.12" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bigger.CrudCars.Infrastructure\Bigger.CrudCars.Infrastructure.csproj" />
+    <ProjectReference Include="..\Bigger.CrudCars.Tests.Integration\Bigger.CrudCars.Tests.Integration.csproj" />
+    <ProjectReference Include="..\Bigger.CrudCars.Tests\Bigger.CrudCars.Tests.csproj" />
+    <ProjectReference Include="..\Bigger.CrudCars.Application\Bigger.CrudCars.Application.csproj" />
   </ItemGroup>
 
 </Project>
