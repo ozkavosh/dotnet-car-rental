@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bigger.CrudCars.Infrastructure\Bigger.CrudCars.Infrastructure.csproj" />
     <ProjectReference Include="..\Bigger.CrudCars.Tests.Integration\Bigger.CrudCars.Tests.Integration.csproj" />
     <ProjectReference Include="..\Bigger.CrudCars.Tests\Bigger.CrudCars.Tests.csproj" />
   </ItemGroup>

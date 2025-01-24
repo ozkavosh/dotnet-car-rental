@@ -1,4 +1,5 @@
-using Bigger.CrudCars.Application;
+using Bigger.CrudCars.Application.DTOs;
+using Bigger.CrudCars.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bigger.CrudCars.WebApi.Controllers
@@ -7,18 +8,24 @@ namespace Bigger.CrudCars.WebApi.Controllers
     [Route("api/cars")]
     public class CarsController : ControllerBase
     {
-        [HttpGet("example")]
-        public ActionResult<CarDto> GetExampleCar()
+        private readonly CarService _carService;
+
+        public CarsController(CarService carService)
         {
-            var carDto = new CarDto
-            {
-                Brand = "Toyota",
-                Model = "Corolla",
-                Year = 2022,
-                CreatedAt = DateTime.Now,
-                Id = 1,
-            };
-            return Ok(carDto);
+            _carService = carService;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<CarResponseDto>>> GetCars()
+        {
+            return await _carService.GetAllCarsAsync();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<CarResponseDto>> CreateCar([FromBody] CarCreateDto carCreateDto)
+        {
+            var createdCar = await _carService.CreateCarAsync(carCreateDto);
+            return CreatedAtAction(nameof(CreateCar), new { id = createdCar.Id }, createdCar);
         }
     }
 }
